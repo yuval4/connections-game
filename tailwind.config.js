@@ -71,7 +71,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      "space-mono": ["Space Mono"],
+      assistant: ["Assistant"],
     },
   },
   plugins: [require("tailwindcss-animate")],

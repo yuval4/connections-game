@@ -22,7 +22,8 @@ html {
     Custom styles
   */
 body {
-  font-family: sans-serif;
+  font-family: assistant;
+  direction: rtl;
 }
 
 @media (max-height: 600px) {

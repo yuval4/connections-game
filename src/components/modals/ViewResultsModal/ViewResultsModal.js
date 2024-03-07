@@ -16,7 +16,7 @@ function ViewResultsModal() {
     <BaseModal
       title=""
       trigger={
-        <Button variant="submit" className="w-full" children={"View Results"} />
+        <Button variant="submit" className="w-full" children={"הראה תוצאות"} />
       }
       initiallyOpen={false}
       showActionButton={false}

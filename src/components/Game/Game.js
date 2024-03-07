@@ -1,7 +1,6 @@
 import React from "react";
 import { shuffleGameData } from "../../lib/game-helpers";
 import GameGrid from "../GameGrid";
-import NumberOfMistakesDisplay from "../NumberOfMistakesDisplay";
 import GameLostModal from "../modals/GameLostModal";
 import GameWonModal from "../modals/GameWonModal";
 
@@ -63,7 +62,7 @@ function Game() {
   return (
     <>
       <h3 className="text-xl text-center mt-4">
-        Create {numCategories} groups of {categorySize}
+        צור {numCategories} קבוצות של {categorySize}
       </h3>
 
       <div className={`game-wrapper`}>
@@ -96,7 +95,6 @@ function Game() {
 
         {!isGameOver ? (
           <>
-            <NumberOfMistakesDisplay />
             <GameControlButtonsPanel
               shuffledRows={shuffledRows}
               setShuffledRows={setShuffledRows}

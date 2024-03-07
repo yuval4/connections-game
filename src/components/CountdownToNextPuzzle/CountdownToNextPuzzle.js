@@ -7,31 +7,27 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   //ChatGPT Assisted
   // Render a countdown
   if (completed) {
-    return (
-      <span className="font-[600]">
-        New Game Available! Refresh Your Browser.
-      </span>
-    );
+    return <span className="font-[600]">יש משחק חדש! רענן את הדפדפן</span>;
   }
   const timeParts = [];
 
   if (days > 0) {
-    timeParts.push(`${days} Day${days > 1 ? "s" : ""}`);
+    timeParts.push(`${days > 1 ? ` ${days} ימים` : "יום"}`);
   }
   if (hours > 0) {
-    timeParts.push(`${hours} Hour${hours > 1 ? "s" : ""}`);
+    timeParts.push(`${hours > 1 ? ` ${hours} שעות` : "שעה"}`);
   }
   if (minutes > 0) {
-    timeParts.push(`${minutes} Minute${minutes > 1 ? "s" : ""}`);
+    timeParts.push(`${minutes > 1 ? `${minutes} דקות` : "דקה"}`);
   }
 
   // Create a sentence based on the time parts
-  let timeLeftString = "Next Puzzle Released in ";
+  let timeLeftString = "חידה הבאה בעוד";
   if (timeParts.length > 2) {
     timeLeftString += timeParts.slice(0, -1).join(", ");
-    timeLeftString += `, and ${timeParts.slice(-1)}`;
+    timeLeftString += `, ו-${timeParts.slice(-1)}`;
   } else if (timeParts.length == 2) {
-    timeLeftString += `${timeParts[0]} and ${timeParts[1]}`;
+    timeLeftString += `${timeParts[0]} ו ${timeParts[1]}`;
   } else {
     timeLeftString += timeParts[0];
   }

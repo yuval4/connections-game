@@ -54,8 +54,20 @@ export const getPuzzleOfDay = (index) => {
   if (index < 0) {
     throw new Error("Invalid index");
   }
-
-  return CONNECTION_GAMES[index % CONNECTION_GAMES.length];
+  console.log(
+    CONNECTION_GAMES.find(
+      (puzzle) =>
+        new Date(puzzle.date).setHours(0, 0, 0, 0) ===
+        new Date().setHours(0, 0, 0, 0)
+    )?.categories
+  );
+  return (
+    CONNECTION_GAMES.find(
+      (puzzle) =>
+        new Date(puzzle.date).setHours(0, 0, 0, 0) ===
+        new Date().setHours(0, 0, 0, 0)
+    )?.categories ?? CONNECTION_GAMES[0].categories
+  );
 };
 
 export const getSolution = (gameDate) => {

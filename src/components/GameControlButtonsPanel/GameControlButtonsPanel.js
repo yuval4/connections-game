@@ -81,9 +81,8 @@ function GameControlButtonsPanel({
       if (isGuessOneAway) {
         toast({
           label: "Notification",
-          title: "Close Guess",
-          description:
-            "You were one guess away from correctly guessing a category!",
+          title: "אתם קרובים!",
+          description: "יש לכם מילה אחת שגויה",
         });
       }
     }
@@ -92,14 +91,12 @@ function GameControlButtonsPanel({
   return (
     <div className="grid grid-cols-3 gap-4">
       <Button
-        disabled={isGameOver}
-        variant="secondary"
-        onClick={() =>
-          setShuffledRows(shuffleGameData({ gameData: shuffledRows }))
-        }
+        variant="submit"
+        onClick={submitCandidateGuess}
+        disabled={isGameOver || guessCandidate.length !== categorySize}
       >
-        <Shuffle className="h-4 w-4 mr-2" strokeWidth={1} />
-        <p className="select-none">Shuffle</p>
+        <SendHorizontal className="h-4 w-4 ml-2" strokeWidth={1} />
+        <p className="select-none">בדיקה</p>
       </Button>
       <Button
         size="deselectallsize"
@@ -107,16 +104,18 @@ function GameControlButtonsPanel({
         variant="secondary"
         onClick={deselectAll}
       >
-        <Undo className="h-4 w-4 mr-2" strokeWidth={1} />
-        <p className="select-none">Deselect All</p>
+        <Undo className="h-4 w-4 ml-2" strokeWidth={1} />
+        <p className="select-none">נקה בחירה</p>
       </Button>
       <Button
-        variant="submit"
-        onClick={submitCandidateGuess}
-        disabled={isGameOver || guessCandidate.length !== categorySize}
+        disabled={isGameOver}
+        variant="secondary"
+        onClick={() =>
+          setShuffledRows(shuffleGameData({ gameData: shuffledRows }))
+        }
       >
-        <SendHorizontal className="h-4 w-4 mr-2" strokeWidth={1} />
-        <p className="select-none">Submit</p>
+        <Shuffle className="h-4 w-4 ml-2" strokeWidth={1} />
+        <p className="select-none">ערבוב</p>
       </Button>
     </div>
   );

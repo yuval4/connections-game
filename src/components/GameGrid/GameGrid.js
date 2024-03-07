@@ -50,8 +50,8 @@ export function SolvedWordRow({ ...props }) {
     <animated.div style={springProps}>
       {!isImageAvailable ? (
         <div style={{ backgroundColor: color, borderRadius: 8 }}>
-          <p className="font-bold pt-2 pl-4">{props.category}</p>
-          <p className="font-thin pb-2 pl-4">{props.words.join(", ")}</p>
+          <p className="font-bold pt-2 pr-4">{props.category}</p>
+          <p className="font-thin pb-2 pr-4">{props.words.join(", ")}</p>
         </div>
       ) : (
         <Popover>
@@ -62,12 +62,12 @@ export function SolvedWordRow({ ...props }) {
               onClick={() => setHasBeenClicked(true)}
             >
               {!hasBeenClicked && (
-                <Badge className="animate-pulse absolute top-0 right-0 mr-2 mt-2">
+                <Badge className="animate-pulse absolute top-0 right-0 ml-2 mt-2">
                   View More
                 </Badge>
               )}
-              <p className="font-bold pt-2 pl-4">{props.category}</p>
-              <p className="font-thin pb-2 pl-4">{props.words.join(", ")}</p>
+              <p className="font-bold pt-2 pr-4">{props.category}</p>
+              <p className="font-thin pb-2 pr-4">{props.words.join(", ")}</p>
             </div>
           </PopoverTrigger>
           <PopoverContent>
@@ -122,7 +122,7 @@ function GameGrid({ gameRows, shouldGridShake, setShouldGridShake }) {
       {/* Show correct answers here after the game is over if they lost */}
       {isGameOverAndLost && (
         <div className="grid gap-y-2 pb-2">
-          <p>The answer categories are below.</p>
+          <p>הקטגוריות:</p>
           {gameData.map((obj) => (
             <SolvedWordRow key={obj.category} {...obj} />
           ))}

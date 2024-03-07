@@ -10,7 +10,7 @@ function GameLostModal({ open }) {
 
   return (
     <BaseModal
-      title="You lost."
+      title="הפסדת"
       initiallyOpen={open}
       footerElements={<ShareScoreButton />}
       showActionButton={false}
