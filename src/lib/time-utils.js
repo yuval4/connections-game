@@ -41,7 +41,7 @@ export const isValidGameDate = (date) => {
 export const getIndex = (gameDate) => {
   let start = firstGameDate;
   let index = -1;
-  console.log(firstGameDate);
+
   do {
     index++;
     start = addDays(start, periodInDays);
@@ -54,13 +54,7 @@ export const getPuzzleOfDay = (index) => {
   if (index < 0) {
     throw new Error("Invalid index");
   }
-  console.log(
-    CONNECTION_GAMES.find(
-      (puzzle) =>
-        new Date(puzzle.date).setHours(0, 0, 0, 0) ===
-        new Date().setHours(0, 0, 0, 0)
-    )?.categories
-  );
+
   return (
     CONNECTION_GAMES.find(
       (puzzle) =>
@@ -74,7 +68,7 @@ export const getSolution = (gameDate) => {
   const nextGameDate = getNextGameDate(gameDate);
   const index = getIndex(gameDate);
   const puzzleOfTheDay = getPuzzleOfDay(index);
-  console.log("index for today: ", index);
+
   return {
     puzzleAnswers: puzzleOfTheDay,
     puzzleGameDate: gameDate,
@@ -96,7 +90,6 @@ export const getGameDate = () => {
     }
     return d;
   } catch (e) {
-    console.log(e);
     return getToday();
   }
 };
